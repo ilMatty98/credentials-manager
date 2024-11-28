@@ -11,6 +11,7 @@ import Contribute from "../pages/Contribute/Contribute";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import {isAuthenticated} from "../utils/AuthUtils";
 import AccountSettings from "../pages/AccountSettings/AccountSettings";
+import ConfirmEmail from "../pages/ConfirmEmail/ConfirmEmail";
 
 enum routesMap {
     ROOT = "/",
@@ -21,6 +22,7 @@ enum routesMap {
     CONTRIBUTE = "/contribute",
     CONTACT_US = "/contact-us",
     ACCOUNT_SETTINGS = "/account-settings",
+    CONFIRM_EMAIL = "/:email/:token/confirm"
 }
 
 const routerInstance = createBrowserRouter([
@@ -64,6 +66,11 @@ const routerInstance = createBrowserRouter([
         path: routesMap.ACCOUNT_SETTINGS,
         element: <ProtectedRoute requireAuthorized={true}><MainLayout/></ProtectedRoute>,
         children: [{path: routesMap.ACCOUNT_SETTINGS, element: <AccountSettings/>}]
+    },
+    {
+        path: routesMap.CONFIRM_EMAIL,
+        element: <ProtectedRoute><MainLayout/></ProtectedRoute>,
+        children: [{path: routesMap.CONFIRM_EMAIL, element: <ConfirmEmail/>}]
     },
     {
         path: "*",
