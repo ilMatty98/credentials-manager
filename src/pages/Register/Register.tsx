@@ -20,7 +20,7 @@ import {
     passwordInputComponent
 } from "../../utils/FormUtils";
 import { useInterceptor } from "../../contexts/InterceptorContextProvider";
-import { CM_SERVICE_URL } from "../../config/Config";
+import { AUTHENTICATION_SERVICE_URL } from "../../config/Config";
 
 const Register = () => {
     const { setBaseURL } = useInterceptor();
@@ -52,7 +52,7 @@ const Register = () => {
 
     const onClickSignUp = () => {
         mostraSpinner();
-        setBaseURL(CM_SERVICE_URL as string);
+        setBaseURL(AUTHENTICATION_SERVICE_URL as string);
         setTimeout(() => {
             signUp({
                 email: state.form.fields.email,

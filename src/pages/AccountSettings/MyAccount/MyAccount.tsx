@@ -11,7 +11,7 @@ import {EMAIL} from "../../../utils/SessionStorageConst";
 import "./MyAccount.scss";
 import ButtonComponent from "../../../components/ButtonComponent/ButtonComponent";
 import {ExclamationTriangleIcon} from "@heroicons/react/24/outline";
-import { CM_SERVICE_URL } from "../../../config/Config";
+import { AUTHENTICATION_SERVICE_URL } from "../../../config/Config";
 import { useInterceptor } from "../../../contexts/InterceptorContextProvider";
 
 const initialForm = {
@@ -68,7 +68,7 @@ const MyAccount = () => {
 
     const onClickConfirmChangeEmail = () => {
         mostraSpinner();
-        setBaseURL(CM_SERVICE_URL as string);
+        setBaseURL(AUTHENTICATION_SERVICE_URL as string);
         setTimeout(() => {
             confirmChangeEmail({
                 email: formChangeEmail.email,
@@ -80,7 +80,7 @@ const MyAccount = () => {
 
     const onClickChangeEmail = () => {
         mostraSpinner();
-        setBaseURL(CM_SERVICE_URL as string);
+        setBaseURL(AUTHENTICATION_SERVICE_URL as string);
         setTimeout(() => {
             changeEmail({
                 email: formChangeEmail.email,
@@ -100,7 +100,7 @@ const MyAccount = () => {
 
     const onClickConfirmDeleteAccount = () => {
         mostraSpinner();
-        setBaseURL(CM_SERVICE_URL as string);
+        setBaseURL(AUTHENTICATION_SERVICE_URL as string);
         setTimeout(() => {
             deleteAccount({masterPasswordHash: formDialog.password})
                 .then(() => signOut(navigate))

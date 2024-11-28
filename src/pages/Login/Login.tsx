@@ -15,7 +15,7 @@ import {useNavigate} from "react-router-dom";
 import {mostraSpinner} from "../../hooks/useLoaderHook/UseLoaderHook";
 import {TLoginResponse} from "../../config/Types";
 import {AUTH_STATE, LOG_IN, TOKEN, TOKEN_PUBLIC_KEY, USER_IP} from "../../utils/SessionStorageConst";
-import { CM_SERVICE_URL } from "../../config/Config";
+import { AUTHENTICATION_SERVICE_URL } from "../../config/Config";
 import { useInterceptor } from "../../contexts/InterceptorContextProvider";
 
 const Login = () => {
@@ -45,7 +45,7 @@ const Login = () => {
 
     const onClickLogIn = () => {
         mostraSpinner();
-        setBaseURL(CM_SERVICE_URL as string);
+        setBaseURL(AUTHENTICATION_SERVICE_URL as string);
         setTimeout(() => {
             logIn({email: state.form.fields.email, password: state.form.fields.password})
                 .then((loginResponse: TLoginResponse) => {

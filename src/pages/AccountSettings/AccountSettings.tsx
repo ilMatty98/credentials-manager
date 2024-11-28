@@ -13,7 +13,7 @@ import MyAccount from "./MyAccount/MyAccount";
 import Security from "./Security/Security";
 import Preferences from "./Preferences/Preferences";
 import { useInterceptor } from "../../contexts/InterceptorContextProvider";
-import { CM_SERVICE_URL } from "../../config/Config";
+import { AUTHENTICATION_SERVICE_URL } from "../../config/Config";
 
 enum Items {
     MY_ACCOUNT,
@@ -57,7 +57,7 @@ const AccountSettings = () => {
             const file = e.target.files ? e.target.files[0] : null;
             if (file != null) {
                 if (file.size < maxSizePropic) {
-                    setBaseURL(CM_SERVICE_URL as string);
+                    setBaseURL(AUTHENTICATION_SERVICE_URL as string);
                     const loginResponse = JSON.parse(sessionStorage.getItem(LOG_IN) ?? '');
                     fileToBase64(file).then(base64String => {
                         loginResponse.propic = base64String?.toString();

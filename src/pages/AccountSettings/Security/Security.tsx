@@ -17,7 +17,7 @@ import {mostraSpinner, nascondiSpinner} from "../../../hooks/useLoaderHook/UseLo
 import {changeInformation, changePassword} from "../../../services/AuthenticationService";
 import {AUTH_STATE, LOG_IN} from "../../../utils/SessionStorageConst";
 import {AUTH_STATUS} from "../../../enums/enum";
-import { CM_SERVICE_URL } from "../../../config/Config";
+import { AUTHENTICATION_SERVICE_URL } from "../../../config/Config";
 import { useInterceptor } from "../../../contexts/InterceptorContextProvider";
 
 const initialFormChangePassword = {
@@ -94,7 +94,7 @@ const Security = () => {
 
     const onClickChangePassword = () => {
         mostraSpinner();
-        setBaseURL(CM_SERVICE_URL as string);
+        setBaseURL(AUTHENTICATION_SERVICE_URL as string);
         setTimeout(() => {
             changePassword({
                 currentMasterPasswordHash: formChangePassword.currentMasterPasswordHash,
@@ -131,7 +131,7 @@ const Security = () => {
         setTimeout(() => {
             const loginResponse = JSON.parse(sessionStorage.getItem(LOG_IN) ?? '');
             loginResponse.hint = hint;
-            setBaseURL(CM_SERVICE_URL as string);
+            setBaseURL(AUTHENTICATION_SERVICE_URL as string);
             changeInformation({
                 language: getInfoFromLogIn('language'),
                 hint: hint,

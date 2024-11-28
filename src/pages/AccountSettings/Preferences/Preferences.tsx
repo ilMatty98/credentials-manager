@@ -9,7 +9,7 @@ import {AUTH_STATE, LOG_IN} from "../../../utils/SessionStorageConst";
 import {AUTH_STATUS, LANGUAGES} from "../../../enums/enum";
 import SelectComponent from "../../../components/SelectComponent/SelectComponent";
 import {buttonComponent} from "../../../utils/FormUtils";
-import { CM_SERVICE_URL } from "../../../config/Config";
+import { AUTHENTICATION_SERVICE_URL } from "../../../config/Config";
 import { useInterceptor } from "../../../contexts/InterceptorContextProvider";
 
 const Preferences = () => {
@@ -39,7 +39,7 @@ const Preferences = () => {
         setTimeout(() => {
             const loginResponse = JSON.parse(sessionStorage.getItem(LOG_IN) ?? '');
             loginResponse.language = language;
-            setBaseURL(CM_SERVICE_URL as string);
+            setBaseURL(AUTHENTICATION_SERVICE_URL as string);
             changeInformation({
                 language: language,
                 hint: getInfoFromLogIn('hint'),
