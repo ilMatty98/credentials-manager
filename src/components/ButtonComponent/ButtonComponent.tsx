@@ -9,12 +9,12 @@ type ButtonComponentProps = {
 };
 
 const ButtonComponent = ({
-    label,
-    id,
-    className,
-    onClick,
-    disabled
-}: ButtonComponentProps) => {
+                             label,
+                             id,
+                             className,
+                             onClick,
+                             disabled
+                         }: ButtonComponentProps) => {
 
     return (
         <button

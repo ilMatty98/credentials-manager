@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Subject } from "rxjs";
+import {useEffect, useState} from "react";
+import {Subject} from "rxjs";
 
 export const spinnerSubject = new Subject();
 

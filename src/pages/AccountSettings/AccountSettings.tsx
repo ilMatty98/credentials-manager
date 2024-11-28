@@ -12,8 +12,8 @@ import {changeInformation} from "../../services/AuthenticationService";
 import MyAccount from "./MyAccount/MyAccount";
 import Security from "./Security/Security";
 import Preferences from "./Preferences/Preferences";
-import { useInterceptor } from "../../contexts/InterceptorContextProvider";
-import { AUTHENTICATION_SERVICE_URL } from "../../config/Config";
+import {useInterceptor} from "../../contexts/InterceptorContextProvider";
+import {AUTHENTICATION_SERVICE_URL} from "../../config/Config";
 
 enum Items {
     MY_ACCOUNT,
@@ -22,7 +22,7 @@ enum Items {
 }
 
 const AccountSettings = () => {
-    const { setBaseURL } = useInterceptor();
+    const {setBaseURL} = useInterceptor();
     const {mostraAlert, appText} = useContext(AppContext);
     const {ACCOUNT_SETTINGS, ALERTS, NAVBAR} = appText;
 

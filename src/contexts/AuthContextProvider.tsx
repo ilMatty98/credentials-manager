@@ -1,5 +1,5 @@
-import { createContext, useState } from "react";
-import { AUTH_STATUS, ROLES } from "../enums/enum";
+import {createContext, useState} from "react";
+import {AUTH_STATUS, ROLES} from "../enums/enum";
 import {AUTH_STATE} from "../utils/SessionStorageConst";
 
 
@@ -20,7 +20,7 @@ type TUser = {
 // Create initial empty Context
 const AuthContext = createContext<any | null>(null);
 
-const AuthContextProvider = ({ children }: TAuthContextProviderProps) => {
+const AuthContextProvider = ({children}: TAuthContextProviderProps) => {
 
     const [authState, setAuthState] = useState<TState>({
         authStatus: AUTH_STATUS.INIT
@@ -34,7 +34,7 @@ const AuthContextProvider = ({ children }: TAuthContextProviderProps) => {
 
     const setAuthStateStatus = (authStatus: number) => {
         setAuthState((oldState) => {
-            const newState = { ...oldState };
+            const newState = {...oldState};
             newState.authStatus = authStatus;
             return newState;
         });
@@ -83,4 +83,4 @@ const AuthContextProvider = ({ children }: TAuthContextProviderProps) => {
 };
 
 export default AuthContextProvider;
-export { AuthContext };
+export {AuthContext};

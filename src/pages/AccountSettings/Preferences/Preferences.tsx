@@ -9,13 +9,13 @@ import {AUTH_STATE, LOG_IN} from "../../../utils/SessionStorageConst";
 import {AUTH_STATUS, LANGUAGES} from "../../../enums/enum";
 import SelectComponent from "../../../components/SelectComponent/SelectComponent";
 import {buttonComponent} from "../../../utils/FormUtils";
-import { AUTHENTICATION_SERVICE_URL } from "../../../config/Config";
-import { useInterceptor } from "../../../contexts/InterceptorContextProvider";
+import {AUTHENTICATION_SERVICE_URL} from "../../../config/Config";
+import {useInterceptor} from "../../../contexts/InterceptorContextProvider";
 
 const Preferences = () => {
 
     const [language, setLanguage] = useState<any>(getInfoFromLogIn("language"));
-    const { setBaseURL } = useInterceptor();
+    const {setBaseURL} = useInterceptor();
     const {appText, setLangForText} = useContext(AppContext);
     const {ACCOUNT_SETTINGS, LANGUAGE} = appText;
 

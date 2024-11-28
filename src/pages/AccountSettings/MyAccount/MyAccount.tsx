@@ -11,8 +11,8 @@ import {EMAIL} from "../../../utils/SessionStorageConst";
 import "./MyAccount.scss";
 import ButtonComponent from "../../../components/ButtonComponent/ButtonComponent";
 import {ExclamationTriangleIcon} from "@heroicons/react/24/outline";
-import { AUTHENTICATION_SERVICE_URL } from "../../../config/Config";
-import { useInterceptor } from "../../../contexts/InterceptorContextProvider";
+import {AUTHENTICATION_SERVICE_URL} from "../../../config/Config";
+import {useInterceptor} from "../../../contexts/InterceptorContextProvider";
 
 const initialForm = {
     email: "",
@@ -36,7 +36,7 @@ const MyAccount = () => {
 
     const navigate = useNavigate();
 
-    const { setBaseURL } = useInterceptor();
+    const {setBaseURL} = useInterceptor();
     const {appText} = useContext(AppContext);
     const {ACCOUNT_SETTINGS, LOGIN} = appText;
 

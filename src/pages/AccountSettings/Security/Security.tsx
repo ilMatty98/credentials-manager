@@ -17,8 +17,8 @@ import {mostraSpinner, nascondiSpinner} from "../../../hooks/useLoaderHook/UseLo
 import {changeInformation, changePassword} from "../../../services/AuthenticationService";
 import {AUTH_STATE, LOG_IN} from "../../../utils/SessionStorageConst";
 import {AUTH_STATUS} from "../../../enums/enum";
-import { AUTHENTICATION_SERVICE_URL } from "../../../config/Config";
-import { useInterceptor } from "../../../contexts/InterceptorContextProvider";
+import {AUTHENTICATION_SERVICE_URL} from "../../../config/Config";
+import {useInterceptor} from "../../../contexts/InterceptorContextProvider";
 
 const initialFormChangePassword = {
     currentMasterPasswordHash: "",
@@ -35,7 +35,7 @@ const Security = () => {
     const [hint, setHint] = useState<any>(getInfoFromLogIn("hint"));
     const navigate = useNavigate();
 
-    const { setBaseURL } = useInterceptor();
+    const {setBaseURL} = useInterceptor();
     const {appText} = useContext(AppContext);
     const {ACCOUNT_SETTINGS, LOGIN, REGISTER} = appText;
 

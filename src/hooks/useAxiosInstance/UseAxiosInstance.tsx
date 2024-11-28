@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { useInterceptor } from '../../contexts/InterceptorContextProvider';
-import { instanceAxios } from '../../config/Interceptor';
+import {useInterceptor} from '../../contexts/InterceptorContextProvider';
+import {instanceAxios} from '../../config/Interceptor';
 
 // Hook per restituire un'istanza Axios, con un baseURL temporaneo opzionale
 export const useAxiosInstance = () => {
-    const { baseURL } = useInterceptor();
+    const {baseURL} = useInterceptor();
 
     // Restituisce un'istanza temporanea di Axios con il baseURL specificato
     const getInstanceWithBaseURL = (tempBaseURL?: string) => {
@@ -20,5 +20,5 @@ export const useAxiosInstance = () => {
         return instanceAxios;
     };
 
-    return { getInstanceWithBaseURL };
+    return {getInstanceWithBaseURL};
 };

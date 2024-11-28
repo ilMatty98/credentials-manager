@@ -12,18 +12,17 @@ import {
     changePageComponent,
     emailInputComponent,
     getForm,
-    getTooltip,
     getTooltipMessageConfirmPassword,
     isValidConfirmPassword,
     isValidHint,
     MAX_LENGTH_HINT,
     passwordInputComponent
 } from "../../utils/FormUtils";
-import { useInterceptor } from "../../contexts/InterceptorContextProvider";
-import { AUTHENTICATION_SERVICE_URL } from "../../config/Config";
+import {useInterceptor} from "../../contexts/InterceptorContextProvider";
+import {AUTHENTICATION_SERVICE_URL} from "../../config/Config";
 
 const Register = () => {
-    const { setBaseURL } = useInterceptor();
+    const {setBaseURL} = useInterceptor();
     const {appText} = useContext(AppContext);
     const {REGISTER} = appText;
 
@@ -101,7 +100,7 @@ const Register = () => {
             onChange={handleFormFieldChange}
             maxLength={MAX_LENGTH_HINT}
             success={!isEmptyString(state.form.fields.hintPassword) || isValidHint(state.form.fields.hintPassword)}
-       />
+        />
     ];
 
     const button = buttonComponent("register", REGISTER.buttonSignUp, onClickSignUp, signUpIsDisabled());

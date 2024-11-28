@@ -15,11 +15,11 @@ import {useNavigate} from "react-router-dom";
 import {mostraSpinner} from "../../hooks/useLoaderHook/UseLoaderHook";
 import {TLoginResponse} from "../../config/Types";
 import {AUTH_STATE, LOG_IN, TOKEN, TOKEN_PUBLIC_KEY, USER_IP} from "../../utils/SessionStorageConst";
-import { AUTHENTICATION_SERVICE_URL } from "../../config/Config";
-import { useInterceptor } from "../../contexts/InterceptorContextProvider";
+import {AUTHENTICATION_SERVICE_URL} from "../../config/Config";
+import {useInterceptor} from "../../contexts/InterceptorContextProvider";
 
 const Login = () => {
-    const { setBaseURL } = useInterceptor();
+    const {setBaseURL} = useInterceptor();
     const {appText, setLangForText} = useContext(AppContext);
     const {LOGIN} = appText;
 
