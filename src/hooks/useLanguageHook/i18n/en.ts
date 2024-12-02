@@ -13,6 +13,7 @@ const LOGIN = {
     emailAlreadyExists: "The entered email already exists, please log in!",
     passwordNotValidTitle: "Invalid password",
     passwordNotValid: "The password must contain at least: a lowercase letter, an uppercase letter, a number, a symbol and a length between 8 and 32 characters",
+    getHint: "Get master password hint"
 }
 
 const REGISTER = {

@@ -12,7 +12,8 @@ const LOGIN = {
     emailAlreadyExistsTitle: "Email esistente",
     emailAlreadyExists: "L'email inserita esiste già, accedi!",
     passwordNotValidTitle: "Password non valida",
-    passwordNotValid: "La password deve contenere almeno: una lettera minuscola, una lettera maiuscola, un numero, un simbolo e una lunghezza tra 8 e 32 caratteri"
+    passwordNotValid: "La password deve contenere almeno: una lettera minuscola, una lettera maiuscola, un numero, un simbolo e una lunghezza tra 8 e 32 caratteri",
+    getHint: "Ottieni il suggerimento per la password principale"
 }
 
 const REGISTER = {

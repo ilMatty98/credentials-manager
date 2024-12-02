@@ -1,18 +1,19 @@
 import {useContext, useEffect, useState} from "react";
 import {routesMap} from "../../routes/ReactRouter";
 import {AppContext} from "../../contexts/AppContextProvider";
-import {getIPAddress, logIn} from "../../services/AuthenticationService";
+import {getIPAddress, logIn, sendHind} from "../../services/AuthenticationService";
 import {isValidEmail, isValidPassword} from "../../utils/Utils";
 import {
     buttonComponent,
     changePageComponent,
     emailInputComponent,
     getForm,
+    hintComponent,
     passwordInputComponent
 } from "../../utils/FormUtils";
 import {AUTH_STATUS} from "../../enums/enum";
 import {useNavigate} from "react-router-dom";
-import {mostraSpinner} from "../../hooks/useLoaderHook/UseLoaderHook";
+import {mostraSpinner, nascondiSpinner} from "../../hooks/useLoaderHook/UseLoaderHook";
 import {TLoginResponse} from "../../config/Types";
 import {AUTH_STATE, LOG_IN, TOKEN, TOKEN_PUBLIC_KEY, USER_IP} from "../../utils/SessionStorageConst";
 import {AUTHENTICATION_SERVICE_URL} from "../../config/Config";
@@ -64,13 +65,30 @@ const Login = () => {
         }, 10);
     };
 
+    const onClickSendHint = () => {
+        mostraSpinner();
+        setBaseURL(AUTHENTICATION_SERVICE_URL as string);
+        setTimeout(() => {
+            sendHind(state.form.fields.email)
+                .then(() => undefined)
+                .catch((error) => {
+                    console.log("ERRORE SENDHINT: ", error)
+                })
+                .finally(() => nascondiSpinner());
+        }, 10);
+    };
+
     useEffect(() => {
         getIPAddress()
             .then((ip) => sessionStorage.setItem(USER_IP, ip));
     }, []);
 
     const signInIsDisabled = () => {
-        return !isValidEmail(state.form.fields.email) || !isValidPassword(state.form.fields.password)
+        return !isValidEmail(state.form.fields.email) || !isValidPassword(state.form.fields.password);
+    };
+
+    const hintIsDisabled = () => {
+        return !isValidEmail(state.form.fields.email);
     };
 
     const elements = [emailInputComponent(state.form.fields.email, handleFormFieldChange, LOGIN, LOGIN.labelEmail),
@@ -78,9 +96,11 @@ const Login = () => {
 
     const button = buttonComponent("login", LOGIN.buttonLogin, onClickLogIn, signInIsDisabled());
 
+    const hint = hintComponent(LOGIN.getHint, hintIsDisabled(), onClickSendHint);
+
     const changePage = changePageComponent(LOGIN.notRegistered, LOGIN.signUp, routesMap.REGISTER);
 
-    return getForm(LOGIN.title, elements, button, changePage);
+    return getForm(LOGIN.title, elements, button, changePage, hint);
 }
 
 export default Login;

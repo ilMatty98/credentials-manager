@@ -90,11 +90,24 @@ export const buttonComponent = (id: string, label: string, onClick: () => void, 
     />
 }
 
+export const hintComponent = (label: string, disabled: boolean, onClick: () => void) => {
+    return <i>
+        <Link
+            to={""}
+            onClick={onClick}
+            className="underline"
+            style={{pointerEvents: disabled ? "none" : "auto", color: disabled ? "gray" : undefined}}>
+            {label}
+        </Link>
+    </i>
+}
+
 export const changePageComponent = (question: string, answer: string, linkTo: string) => {
     return <i>{question} <Link to={linkTo} className="underline">{answer}</Link></i>
 }
 
-export const getForm = (titleForm: string, elements: React.ReactElement[], button: React.ReactElement, changePage: React.ReactElement) => {
+export const getForm = (titleForm: string, elements: React.ReactElement[], button: React.ReactElement,
+                        changePage: React.ReactElement, hint?: React.ReactElement) => {
     return <div className="flex justify-center items-center h-full mx-auto p-4">
         <div className="lg:w-96 sm:w-80 p-6 shadow-lg bg-white rounded-md mx-auto my-auto">
             <h1 className="text-4xl font-bold text-center text-primary">{titleForm}</h1>
@@ -104,6 +117,11 @@ export const getForm = (titleForm: string, elements: React.ReactElement[], butto
                     <div className="mb-6" key={index}>{component}</div>
                 ))}
                 {button}
+                {hint &&
+                    <div className="text-center mt-3">
+                        {hint}
+                    </div>
+                }
                 <div className="text-center mt-3">
                     {changePage}
                 </div>

@@ -1,5 +1,5 @@
 {
-  "name": "credentials_manager_fe",
+  "name": "credentials_manager",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

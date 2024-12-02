@@ -107,7 +107,7 @@ const Register = () => {
 
     const changePage = changePageComponent(REGISTER.alreadyHaveAnAccount, REGISTER.signIn, routesMap.LOGIN);
 
-    return getForm(REGISTER.title, elements, button, changePage);
+    return getForm(REGISTER.title, elements, button, changePage, undefined);
 }
 
 export default Register;

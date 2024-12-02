@@ -192,4 +192,18 @@ async function confirmChangeEmail(input: any): Promise<void> {
     });
 }
 
-export {signUp, logIn, getIPAddress, changeInformation, changeEmail, confirmChangeEmail, deleteAccount, changePassword};
+async function sendHind(email: String): Promise<void> {
+    return instanceAxios.post(BASEPATH + "sendHint/" + email);
+}
+
+export {
+    signUp,
+    logIn,
+    getIPAddress,
+    changeInformation,
+    changeEmail,
+    confirmChangeEmail,
+    deleteAccount,
+    changePassword,
+    sendHind
+};
