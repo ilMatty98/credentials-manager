@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: credentials-manager-ingress # Name of ingress
+  namespace: ilmatty98  # Name of namespace
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: credentials-manager.ilmatty98.me  # Domain url
+      http:
+        paths:
+          - path: /   # Indicates that all requests to the domain are forwarded to the service
+            pathType: Prefix
+            backend:
+              service:
+                name: credentials-manager-service # Name of service
+                port:
+                  number: 80

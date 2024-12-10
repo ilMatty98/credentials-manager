@@ -1,4 +1,4 @@
-## Stage 1: Build the React application
+# Stage 1: Build the React application
 FROM node:22-alpine AS build
 
 # Set the working directory
