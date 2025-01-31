@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: credentials-manager # Name of container
-          image: ilmatty98/credentials-manager:2.1.1-SNAPSHOT7 # Image from docker hub
+          image: ilmatty98/credentials-manager:1.0.1 # Image from docker hub
           ports:
             - containerPort: 8080 # Port on which the container exposes the service
           resources:
@@ -27,19 +27,3 @@ spec:
             requests:
               memory: "256Mi"
               cpu: "0.5"
-          env: # Definition of environment variables
-            - name: AUTHENTICATION_SERVICE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: credentials-manager-secrets
-                  key: AUTHENTICATION_SERVICE_URL
-            - name: REACT_APP_ENCRYPTION_PBKDF2_KEYLEN
-              valueFrom:
-                secretKeyRef:
-                  name: credentials-manager-secrets
-                  key: REACT_APP_ENCRYPTION_PBKDF2_KEYLEN
-            - name: REACT_APP_ENCRYPTION_PBKDF2_ITERATIONS
-              valueFrom:
-                secretKeyRef:
-                  name: credentials-manager-secrets
-                  key: REACT_APP_ENCRYPTION_PBKDF2_ITERATIONS
