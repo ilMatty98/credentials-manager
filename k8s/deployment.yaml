@@ -18,6 +18,7 @@ spec:
       containers:
         - name: credentials-manager # Name of container
           image: ilmatty98/credentials-manager:latest # Image from docker hub
+          imagePullPolicy: Always
           ports:
             - containerPort: 80 # Port on which the container exposes the service
           resources:
