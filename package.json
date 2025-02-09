@@ -1,6 +1,6 @@
 {
   "name": "credentials_manager",
-  "version": "1.1.0-SNAPSHOT5",
+  "version": "1.1.0-SNAPSHOT6",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
