@@ -1,5 +1,5 @@
 # Stage 1: Build the React application
-FROM node:22-alpine AS build
+FROM node:16 AS build
 
 # Set the working directory
 WORKDIR /app
@@ -21,6 +21,9 @@ FROM nginx:1.23-alpine
 
 # Copy built files from the previous stage to the Nginx HTML folder
 COPY --from=build /app/build /usr/share/nginx/html
+
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose the default Nginx port
 EXPOSE 80

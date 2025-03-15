@@ -196,6 +196,10 @@ async function sendHind(email: String): Promise<void> {
     return instanceAxios.post(BASEPATH + "sendHint/" + email);
 }
 
+async function confirmEmail(email: String, code: String): Promise<void> {
+    return instanceAxios.patch(BASEPATH + email + "/" + code + "/confirm");
+}
+
 export {
     signUp,
     logIn,
@@ -205,5 +209,6 @@ export {
     confirmChangeEmail,
     deleteAccount,
     changePassword,
-    sendHind
+    sendHind,
+    confirmEmail
 };
