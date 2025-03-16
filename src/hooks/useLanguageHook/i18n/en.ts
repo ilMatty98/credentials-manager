@@ -87,10 +87,12 @@ const ACCOUNT_SETTINGS = {
     selectlanguage: "Select language"
 }
 
-const WAREHOUSE = {
-    buttonAddProduct: "Add product",
-    buttonDeleteProduct: "Delete product",
-    scannerBarcode: "Barcode scan"
+const CONFIRM_EMAIL = {
+    confirmEmail: "Email confirmation",
+    confirmEmailOk: "Email confirmed correctly",
+    confirmEmailKo: "Email not confirmed",
+    progress: "Confirmation in progress",
+    backToLogin: "Back to Login page"
 }
 
 const FOOTER = {
@@ -125,7 +127,7 @@ export {
     LOGIN,
     REGISTER,
     ACCOUNT_SETTINGS,
-    WAREHOUSE,
+    CONFIRM_EMAIL,
     ALERTS,
     NAVBAR,
     FOOTER,
